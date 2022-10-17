@@ -29,3 +29,23 @@ func TestHelloEmpty(t *testing.T) {
 		t.Fatalf(`Hello("") = %q, %v, want match for "", error`, msg, err)
 	}
 }
+
+// TestHelloNames calls greetings.Hellos with a slice of names, checking
+// for a valid return value.
+func TestHelloNames(t *testing.T) {
+	names := []string{
+		"Sam",
+		"Younseo",
+		"Yas",
+	}
+
+	msgs, err := Hellos(names)
+
+	for _, name := range names {
+		want := regexp.MustCompile(`\b` + name + `\b`)
+
+		if !want.MatchString(msgs[name]) || err != nil {
+			t.Fatalf(`Hello(%v) = %q, %v, want match for %#q, nil`, name, msgs[name], err, want)
+		}
+	}
+}
