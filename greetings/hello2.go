@@ -24,6 +24,31 @@ func Hello(name string) (string, error) {
 	return message, nil
 }
 
+/*
+Hellos returns a map that associates each of the named people
+with a greeting message
+params: a slice of strings indicating names
+returns: map associating names with a message, error message
+*/
+func Hellos(names []string) (map[string]string, error) {
+	// A map to associate names to messages
+	messages := make(map[string]string)
+
+	// Loop through the received slice of names
+	// Calling the Hello function to "get" a message for each name
+	for _, name := range names {
+		message, err := Hello(name)
+		if err != nil {
+			return nil, err
+		}
+
+		// Associate message to a name in the map
+		messages[name] = message
+	}
+
+	return messages, nil
+}
+
 // init sets initial values for variables used in the function.
 func init() {
 	rand.Seed(time.Now().UnixNano())
@@ -32,7 +57,7 @@ func init() {
 // randomFormat returns one of a set of greeting messages. The returned
 // message is selected at random.
 func randomFormat() string {
-	// A slice of message formats.
+	// A slice (a dynamic array) of message formats.
 	formats := []string{
 		"Hi, %v. Welcome!",
 		"Great to see you, %v!",

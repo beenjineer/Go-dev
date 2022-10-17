@@ -13,16 +13,23 @@ func main() {
 		the log entry prefix and a flag to disable printing
 		the time, source file, and line number.
 	*/
+
 	log.SetPrefix("greetings: ")
 	log.SetFlags(0)
 
-	message, err := greetings.Hello("Sam")
+	names := []string{
+		"Sam",
+		"Mika",
+		"Younseo",
+	}
+
+	messages, err := greetings.Hellos(names)
 
 	// If error was returned, print error message and exit program with status code 1
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// If no error was returned, print the message
-	fmt.Println(message)
+	// If no error was returned, print the returned map of message sto console
+	fmt.Println(messages)
 }
