@@ -36,9 +36,24 @@ https://go.dev/doc/tutorial/getting-started
   
 * Error handling and loggingg: use package "errors" and "log". Note: go automatically import the packages necessary in the code when saved.
 
+* Ending a file's name with _test.go tells the go test command that this file contains test functions.
+
+* T is a type passed to Test functions to manage test state and support formatted test logs.
+
+
 ## Questions 
 * Difference between %v vs %w vs %s
 * log formats
 * error handling in depth
 * backward compatibility
-* slice vs array: A slice is like an array, except that its size changes dynamically as you add and remove items. The slice is one of Go's most useful types. The basic difference between a slice and an array is that a slice is a reference to a contiguous segment of an array. Unlike an array, which is a value-type, slice is a reference type. 
+* slice vs array: A slice is like an array, except that its size changes dynamically as you add and remove items. The slice is one of Go's most useful types. The basic difference between a slice and an array is that a slice is a reference to a contiguous segment of an array. Unlike an array, which is a value-type, slice is a reference type.  
+* built-in map keys, values? 
+* built-in unit tests??? wow 
+* project structure: core, modules, testing -> how to organize files effectively? Is there a convention 
+* what is goroutine
+* Difference in ` vs ' or ": 
+  * ``` 
+    a := "\n" // This is one character, a line break.
+    b := `\n` // These are two characters, backslash followed by letter n.
+    ```
+
