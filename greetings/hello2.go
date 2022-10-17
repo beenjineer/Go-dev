@@ -20,7 +20,8 @@ func Hello(name string) (string, error) {
 		return "", errors.New("empty name")
 	}
 	// Return a greeting that embeds the name in a message. (https://pkg.go.dev/fmt#Sprintf)
-	message := fmt.Sprintf(randomFormat(), name)
+	// message := fmt.Sprintf(randomFormat(), name)
+	message := fmt.Sprint(randomFormat()) // breaking on purpose to check if test works properly
 	return message, nil
 }
 
