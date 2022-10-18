@@ -19,7 +19,7 @@ func main() {
 
 	names := []string{
 		"Sam",
-		"Mika",
+		"Bob",
 		"Younseo",
 	}
 
