@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 
-	"rsc.io/quote"
+	"golang.org/x/example/stringutil"
 )
 
 func main() {
-	fmt.Println(fmt.Println(quote.Go()))
+	fmt.Println(stringutil.ToUpper("Hello"))
 }
